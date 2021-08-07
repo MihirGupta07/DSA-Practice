@@ -1,0 +1,14 @@
+int shortestPath( int x, int y){ 
+        int c=0;
+    while(1)
+        {
+        if(x > y)
+            x=x/2;
+        else if(y>x)
+            y=y/2;
+        else
+            break;
+        c++;
+        }
+    return c;
+    }
