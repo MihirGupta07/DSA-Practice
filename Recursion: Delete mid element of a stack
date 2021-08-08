@@ -1,0 +1,35 @@
+    public:
+     stack<int> q;
+    //Function to delete middle element of a stack.
+    void help(stack<int> &s,int mid)
+    {
+        if(s.size()>mid)
+        {
+            int top= s.top();
+            
+            q.push(top);
+            s.pop();
+            
+            help(s,mid);
+        }
+        
+    }
+    
+    void deleteMid(stack<int>&s, int sizeOfStack)
+    {
+         int mid = ceil(sizeOfStack/2.0);
+         
+         while(q.size())
+         {
+             q.pop();
+         }help(s,mid);
+         s.pop();
+         
+         while(q.size())
+         {
+             //cout<<q.top()<<endl;
+             s.push(q.top());
+             q.pop();
+         }
+         
+    }
