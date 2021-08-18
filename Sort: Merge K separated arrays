@@ -1,0 +1,22 @@
+vector<int> mergeKArrays(vector<vector<int>> arr, int K)
+    {
+        map<int,int> m;
+        vector<int> v;
+        for(int i = 0;i<K;i++)
+        {
+            for(int j = 0;j<K;j++)
+            {
+                m[arr[i][j]]++;
+            }
+        }
+        for(auto t:m)
+        {
+            int num = t.first;
+            int times = t.second;
+            for(int i = 0;i<times;i++)
+            {
+                v.push_back(num);
+            }
+        }
+        return v;
+    }
