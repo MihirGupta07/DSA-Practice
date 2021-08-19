@@ -1,0 +1,25 @@
+  int lenOfLongSubarr(int A[],  int N, int K) 
+    { 
+        unordered_map<int,int> v;
+        int psum = 0;
+        int maxlen=0;
+        //v.push_back(psum);
+        for(int i = 0;i<N;i++)
+        {
+           psum+=A[i];
+           if(psum == K)
+           {
+               maxlen = max(maxlen,i+1);
+           }
+           if(v.find(psum) == v.end())
+           {
+               v[psum] = i;
+           }
+           if(v.find(psum - K)!=v.end())
+           {
+               maxlen = max(maxlen,i-(v[psum-K]));
+           }
+        }
+        return maxlen;
+        
+    } 
